@@ -1,0 +1,6 @@
+ofxGui
+ofxKinectBlobFinder
+ofxKinectForWindows2
+ofxKinectHitBoxes
+ofxPointInMesh
+ofxXmlSettings
