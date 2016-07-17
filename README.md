@@ -1,6 +1,6 @@
 ofxKinectHitBoxes
 ====================
-OF 0.9.0 / Visual Studio 2015
+OF 0.9.0 . Visual Studio 2015 and/or XCode
 
 <img src="https://github.com/pelayomendez/ofxKinectHitBoxes/blob/master/screenshoot.png" />
 
@@ -10,7 +10,7 @@ in a similar way that [Kinect Hitboxes DX11](https://vvvv.org/contribution/kinec
 ## Features
 
 - Creation and management of Virtual Hitboxes universe.
-- Support for Kinect V2 only at the moment.
+- Support for Kinect V1 and V2.
 - Event based system.
 
 ## Dependencies
@@ -19,12 +19,11 @@ in a similar way that [Kinect Hitboxes DX11](https://vvvv.org/contribution/kinec
 Implementation of Kinect For Windows v2 API using COM (not KinectCommonBridge) by Elliot Woods.
 
 [ofxKinectBlobFinder](https://github.com/mattfelsen/ofxKinectBlobFinder)  
-3D blob finder to be used with ofxKinect. We are using here Matt Felsen's branch working with ofxKinectForWindows2.
+3D blob finder. We use Matt Felsen's fork wich contains branches that works with ofxKinect and ofxKinectForWindows2.
 
 [ofxPointInMesh](https://github.com/AmnonOwed/ofxPointInMesh)  
 A straightforward C++ openFrameworks addon to check if a 3D point is inside a closed 3D ofMesh by Amnon Owed.
 
 ## License
 
-MIT License
-http://en.wikipedia.org/wiki/MIT_License
+[MIT License](http://en.wikipedia.org/wiki/MIT_License)
