@@ -2,7 +2,7 @@ ofxKinectHitBoxes
 ====================
 OF 0.9.0 / Visual Studio 2015
 
-<img src="https://raw.github.com/pelayomendez/ofxKinectHitBoxes/master/screenshot.png" />
+<img src="https://github.com/pelayomendez/ofxKinectHitBoxes/blob/master/screenshoot.png" />
 
 ofxKinectHitboxes integrates different OF addons to create a tool for easily implementing virtual hitboxes universes for interactive installations 
 in a similar way that [Kinect Hitboxes DX11](https://vvvv.org/contribution/kinect-hitboxes-dx11) works with vvvv.
