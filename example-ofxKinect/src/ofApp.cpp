@@ -10,13 +10,17 @@ void ofApp::setup(){
     
     kinect.setRegistration(true);
     
-    //kinect.init();
+    kinect.init();
     //kinect.init(true); // shows infrared instead of RGB video image
-    kinect.init(false, false); // disable video image (faster fps)
+    //kinect.init(false, false); // disable video image (faster fps)
     
     kinect.open();		// opens first available kinect
     //kinect.open(1);	// open a kinect by id, starting with 0 (sorted by serial # lexicographically))
     //kinect.open("A00362A08602047A");	// open a kinect using it's unique serial #
+    
+    // zero the tilt on startup
+    angle = 0;
+    kinect.setCameraTiltAngle(angle);
     
     // print the intrinsic IR sensor values
     if(kinect.isConnected()) {
@@ -36,8 +40,8 @@ void ofApp::setup(){
     camera.lookAt(ofVec3f(0));
     
     // TODO: Add to GUI
-    thresholdNear.set("Threshold Near", 230, 0, depthImg.getPixels().size());
-    thresholdFar.set("Threshold Far", 70, 0, depthImg.getPixels().size());
+    thresholdNear.set("Threshold Near", 230, 0, 255);
+    thresholdFar.set("Threshold Far", 70, 0, 255);
     
     boxMin.set("boxMin", ofVec3f(-8), ofVec3f(-10), ofVec3f(0));
     boxMax.set("boxMax", ofVec3f(8), ofVec3f(0), ofVec3f(10));
@@ -72,7 +76,7 @@ void ofApp::setup(){
     hitBoxesManager.setup();
     
     ofVec3f boxCenter = ofVec3f(0.0f, 0.0f, 0.0f);
-    ofPoint boxDimensions = ofPoint(1.5, 1.5, 1.5);
+    ofPoint boxDimensions = ofPoint(1.0, 1.0, 1.0);
     hitBoxesManager.addHitBoxToWorld(boxCenter, boxDimensions);
     
     ofAddListener(hitBoxesManager.onHitBoxBecomesActive, this, &ofApp::onHitBoxStateChanged);
@@ -140,17 +144,12 @@ void ofApp::draw(){
         camera.begin();
         
         //ofTranslate(ofGetWidth()/2.0, 0.);
-        ofScale(100., 100., 100.);
         ofEnableDepthTest();
         
         // Draw point cloud
         
         if (drawPointCloud) {
-            
-            // TODO: Draw point cloud for Kinect V1
-            
-            /*
-            camera.begin();
+  
             int w = 640;
             int h = 480;
             ofMesh mesh;
@@ -164,19 +163,19 @@ void ofApp::draw(){
                     }
                 }
             }
-            glPointSize(3);
+          
             ofPushMatrix();
             // the projected points are 'upside down' and 'backwards'
             ofScale(1, -1, -1);
-            ofTranslate(0, 0, -1000); // center the points a bit
+            //ofTranslate(0, 0, -1000); // center the points a bit
             ofEnableDepthTest();
             mesh.drawVertices();
             ofDisableDepthTest();
             ofPopMatrix();
-            camera.end();
-            */
-            
+          
         }
+        
+        ofScale(1000., -1000., -1000.);
         
         // Draw hitboxes & puts the state back to normal on every frame:
         hitBoxesManager.drawBoxes();

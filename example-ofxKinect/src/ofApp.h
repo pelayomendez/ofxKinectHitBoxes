@@ -29,6 +29,7 @@ class ofApp : public ofBaseApp{
     private:
     
         ofxKinect kinect;
+        int angle;
         ofxKinectBlobFinder tracker;
     
         ofImage depthImg;
